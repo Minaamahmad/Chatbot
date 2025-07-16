@@ -1,0 +1,28 @@
+
+body{
+ text-align: center;
+ font-size:medium;
+}
+#button{
+  font-size: x-large;
+  border-radius: 10px;
+      background-color: rgb(218, 199, 199);
+
+}
+#query{
+  font-size: x-large;
+    border-radius: 10px;
+    background-color: antiquewhite;
+
+}
+form {
+  position: fixed;
+  bottom: 15px;
+  right: 40%;
+  
+}
+#response{
+  font-size: medium;
+  font-weight: 700;
+
+}
