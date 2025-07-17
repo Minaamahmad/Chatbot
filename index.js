@@ -2,8 +2,11 @@
 async function chat() {
   const textreff = document.querySelector("#query");
   const text = textreff.value;
-  console.log(text);
   const res = document.querySelector("#response");
+   const userDiv = document.createElement("div");
+  userDiv.classList.add("user-div");
+  userDiv.textContent = text;
+  res.appendChild(userDiv);
   try {
     const response = await axios.post(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
@@ -27,10 +30,17 @@ async function chat() {
     );
     const aiReply =
       response.data.candidates[0].content.parts[0].text || "No reply";
-    
-    res.innerHTML = aiReply;
+    const botDiv = document.createElement("div");
+    botDiv.classList.add("bot-div");
+    botDiv.textContent = aiReply;
+    res.appendChild(botDiv);
+
+
   } catch (error) {
     console.error("API Error:", error);
-    res.innerHTML = "Error getting response.";
+    const errorDiv = document.createElement("div");
+    errorDiv.classList.add("error-div");
+    errorDiv.textContent = "Error getting response.";
+    res.appendChild(errorDiv);
   }
 }

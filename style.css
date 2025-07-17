@@ -26,3 +26,14 @@ form {
   font-weight: 700;
 
 }
+.user-div {
+  text-align: left;
+  background-color: #d0f0c0;
+  
+  
+}
+.bot-div {
+ text-align:right;
+  background-color: #e0e0e0;
+ 
+}
