@@ -1,12 +1,12 @@
 
 async function chat() {
-  const textreff = document.querySelector("#query");
-  const text = textreff.value;
+  const textreff = document.querySelector("#query") as HTMLInputElement | null;
+  const text = textreff?.value as string | null;
   const res = document.querySelector("#response");
    const userDiv = document.createElement("div");
   userDiv.classList.add("user-div");
   userDiv.textContent = text;
-  res.appendChild(userDiv);
+  res?.appendChild(userDiv);
   try {
     const response = await axios.post(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
@@ -33,7 +33,7 @@ async function chat() {
     const botDiv = document.createElement("div");
     botDiv.classList.add("bot-div");
     botDiv.textContent = aiReply;
-    res.appendChild(botDiv);
+    res?.appendChild(botDiv);
 
 
   } catch (error) {
@@ -41,6 +41,6 @@ async function chat() {
     const errorDiv = document.createElement("div");
     errorDiv.classList.add("error-div");
     errorDiv.textContent = "Error getting response.";
-    res.appendChild(errorDiv);
+    res?.appendChild(errorDiv);
   }
 }
